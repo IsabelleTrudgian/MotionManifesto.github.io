@@ -111,7 +111,7 @@ function check()
 
 init();
 
-//SCROLL
+/*SCROLL*/
 
 $('a[href^="#"]').click(function(event) {
 		var id = $(this).attr("href");
@@ -150,7 +150,7 @@ function isSelected(scrolledTo){
 	};
 }
 
-//STICK
+/*STICK*/
 
 const gnbArea = document.querySelector('.gnb_area') ; 
 	const gnbTop = gnbArea.getBoundingClientRect().top ; 
@@ -164,9 +164,9 @@ const gnbArea = document.querySelector('.gnb_area') ;
 		} 
 	}) ;
 
-//END STICK
+/* END STICK*/
 
-//INVERT
+/* INVERT */
 
             const body = document.querySelector("html"),
 toggle = document.querySelector(".toggle");
@@ -175,6 +175,6 @@ toggle.addEventListener("click", () => toggle.classList.toggle("active"));
             
             toggle.addEventListener("click", () => {body.classList.toggle("dark");})
 
-//END INVERT
+/* INVERT END*/
 
 

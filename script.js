@@ -1,4 +1,4 @@
-//GAME
+/* GAME */
 
 var floor = 4;
 var step = 0;
@@ -10,15 +10,15 @@ function init()
   for(let t=1;t<=floor;t++) {
     for(let l=1;l<=floor;l++) {
       if (t == empty.top && l == empty.left)
-        continue; //skip is last position. used as empty position
+        continue; /*skip is last position. used as empty position*/
 
-      //create object and set attribute	
+      /*create object and set attribute	*/
       let width = 100 / floor;
       let pos = ((t - 1) * floor) + l;
       let obj = $('<div class="tile" style="width:' + width + '%;height:' + width + '%;" onClick="swap(this);check();">' + pos + '</div>');
       obj.attr('origin-left',l).attr('origin-top',t).attr('pos-left',l).attr('pos-top',t);
 
-      //display as image
+      /*display as image*/
       obj.css('background-image','url(ScreenSaver_Square.gif)')
         .css('background-size',(floor * 100) + '% ' + (floor * 100) + '%')
         .css('background-position',((100 / (floor - 1)) * (l - 1)) + '% ' + ((100 / (floor - 1)) * (t - 1)) + '%');
@@ -29,7 +29,7 @@ function init()
 
   redraw();
 
-  //reshufle floor * 200 times
+  /*reshufle floor * 200 times*/
   for(let i=1;i<=floor * 500;i++)
     reshuffle();
 }
@@ -40,7 +40,7 @@ function redraw()
     let top = parseInt($(this).attr('pos-top')) - 1;
     let left = parseInt($(this).attr('pos-left')) - 1;
 
-    //set css position
+    /*set css position*/
     $(this).css('top', (100 / floor * top) + '%').css('left',(100 / floor * left) + '%');
   });
 }
@@ -49,18 +49,18 @@ function reshuffle()
 {
   let rands = [];
   if (empty.top > 1)
-    rands.push([empty.top - 1, empty.left]); //go up
+    rands.push([empty.top - 1, empty.left]); /*go up*/
   if (empty.top < floor)
-    rands.push([empty.top + 1, empty.left]); //go down
+    rands.push([empty.top + 1, empty.left]); /*go down*/
   if (empty.left > 1)
-    rands.push([empty.top, empty.left - 1]); //go left
+    rands.push([empty.top, empty.left - 1]); /*go left*/
   if (empty.left < floor)
-    rands.push([empty.top, empty.left + 1]); //go right
+    rands.push([empty.top, empty.left + 1]); /*go right*/
 
-  //generate random
+  /*generate random*/
   let rand = rands[Math.round(Math.random(rands.length))];
 
-  //swap
+  /*swap*/
   swap($('.tile[pos-top=' + rand[0] + '][pos-left=' + rand[1] + ']'));
 }
 
@@ -71,12 +71,12 @@ function swap(obj)
   let left = parseInt(j.attr('pos-left'));
 
   if (
-    (top == empty.top && left == empty.left - 1) //if on left
-    || (top == empty.top && left == empty.left + 1) //if on right
-    || (top == empty.top - 1 && left == empty.left) //if on top
-    || (top == empty.top + 1 && left == empty.left) //if on bottom
+    (top == empty.top && left == empty.left - 1) /*if on left*/
+    || (top == empty.top && left == empty.left + 1) /*if on right*/
+    || (top == empty.top - 1 && left == empty.left) /*if on top*/
+    || (top == empty.top + 1 && left == empty.left) /*if on bottom*/
   ) {
-    //swap element <> empty position
+    /*swap element <> empty position*/
     j.attr('pos-top',empty.top);
     j.attr('pos-left',empty.left);
 

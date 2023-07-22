@@ -157,7 +157,7 @@ const gnbArea = document.querySelector('.gnb_area') ;
 
 	window.addEventListener('scroll', function() {
 		console.log( window.scrollY )
-		if ( 2050 < window.scrollY ) {
+		if ( 2000 < window.scrollY ) {
 			gnbArea.classList.add('fixed');
 		} else {
 			gnbArea.classList.remove('fixed');

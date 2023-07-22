@@ -19,7 +19,7 @@ function init()
       obj.attr('origin-left',l).attr('origin-top',t).attr('pos-left',l).attr('pos-top',t);
 
       //display as image
-      obj.css('background-image','url(screensaver_square.gif)')
+      obj.css('background-image','url(ScreenSaver_Square.gif)')
         .css('background-size',(floor * 100) + '% ' + (floor * 100) + '%')
         .css('background-position',((100 / (floor - 1)) * (l - 1)) + '% ' + ((100 / (floor - 1)) * (t - 1)) + '%');
 
